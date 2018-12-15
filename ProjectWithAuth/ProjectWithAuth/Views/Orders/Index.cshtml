@@ -1,0 +1,83 @@
+﻿@model IEnumerable<ProjectWithAuth.Models.Order>
+
+@{
+    ViewBag.Title = "Index";
+}
+    <h2>Index</h2>
+    @if (User.IsInRole("Customer"))
+    {
+
+    }
+    else if (User.IsInRole("Owner"))
+    {
+
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+    }
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderDueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrderDueDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td>
+                    @if (User.IsInRole("Customer"))
+                {
+
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) ;
+
+
+                } else {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) ;
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) ;
+                         @Html.ActionLink("Delete", "Delete", new { id = item.ID });
+                    }
+
+                </td>
+            </tr>
+        }
+
+    </table>

@@ -1,0 +1,34 @@
+﻿@model ProjectWithAuth.Models.MaterialOrderService
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MaterialOrderService</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Order.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Order.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Service.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Service.Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,67 @@
+﻿@model ProjectWithAuth.Models.Order
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmployeeID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+
+    </dl>
+</div>
+@Html.Partial("_Services",Model.MaterialOrderServices)
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

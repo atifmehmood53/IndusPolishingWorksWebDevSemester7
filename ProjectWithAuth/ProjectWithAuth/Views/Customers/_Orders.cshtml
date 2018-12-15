@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ProjectWithAuth.Models.Order>
+
+
+
+
+<div class="card">
+    <div class="card-header">
+        <h2>Oders Details</h2>
+    </div>
+    <div class="card-body">
+        <p>
+            @Html.ActionLink("Create New", "Create","Orders", null, new { Class = "btn btn-success" })
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Customer.CompanyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Employee.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDueDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Weight)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TotalPrice)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Customer.CompanyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Employee.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDueDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Weight)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TotalPrice)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit","Orders",new { id = item.ID },null) |
+                        @Html.ActionLink("Details", "Details", "Orders", new { id = item.ID },null) |
+                        @Html.ActionLink("Delete", "Delete", "Orders", new { id = item.ID }, null)
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+    <div class="card-footer">
+
+    </div>
+</div>

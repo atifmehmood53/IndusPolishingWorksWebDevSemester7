@@ -1,0 +1,82 @@
+﻿
+
+
+
+<div class="container">
+    <h1>@ViewBag.User.FirstName @ViewBag.User.LastName</h1>
+    <h3>Account type: @ViewBag.UserType</h3>
+    <hr />
+    <div class="row">
+        <div class="col-md-3 col-lg-6 fa fa-5x fa-shipping-fast text-center">
+            <h4>
+                @Html.ActionLink("Orders", "Index", "Orders", null, null)
+            </h4>
+        </div>
+
+        @{
+            if (User.IsInRole("Owner"))
+            {
+                
+                <div class="col-md-3 col-lg-6 fa fa-5x fa-users text-center">
+                    <h4>
+                        @Html.ActionLink("Customers", "Index", "Customers", null, null)
+                    </h4>
+                </div>
+                <div class="col-md-3 col-lg-6 fa fa-5x fa-hands-helping text-center">
+                    <h4>
+                        @Html.ActionLink("Services", "Index", "Services", null, null)
+                    </h4>
+                </div>
+                <div class="col-md-3 col-lg-6 fa fa-5x fa-users-cog text-center">
+                    <h4>
+                        @Html.ActionLink("Employees", "Index", "Employee", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                    </h4>
+                </div>
+                <div class="col-md-3 col-lg-6 fa fa-5x fa-user text-center">
+                    <h4>
+                        @Html.ActionLink("Vendors", "Index", "Vendors", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                    </h4>
+                </div>
+                <div class="col-md-3 col-lg-6 fa fa-5x fa-chair text-center">
+                    <h4>
+                        @Html.ActionLink("Materials", "Index", "Materials", null, null)
+                    </h4>
+                </div>
+
+            }
+            else if (User.IsInRole("Employee"))
+            {
+                <div class="col-md-3 col-lg-6 fa fa-5x fa-users text-center">
+                    <h4>
+                        @Html.ActionLink("Customers", "Index", "Customers", null, null)
+                    </h4>
+                </div>
+                <div class="col-md-3 col-lg-6 fa fa-5x fa-user text-center">
+                    <h4>
+                        @Html.ActionLink("Services", "Index", "Services", null, null)
+                    </h4>
+                </div>
+                
+
+                <div class="col-md-3 col-lg-6 fa fa-5x fa-user text-center">
+                    <h4>
+                        @Html.ActionLink("Vendors", "Index", "Vendors", routeValues: null, htmlAttributes: new { id = "registerLink" })
+                    </h4>
+                </div>
+
+
+            }
+
+        }
+
+    </div>
+    </div>
+
+
+
+
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

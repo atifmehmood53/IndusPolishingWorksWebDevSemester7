@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ProjectWithAuth.Models.MaterialOrderService>
+
+<h3>Services</h3>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Material.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Service.Name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Material.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Service.Name)
+        </td>
+        <td>
+            
+            @Html.ActionLink("Delete", "Delete","MaterialOrderServices", new { id=item.ID },null)
+        </td>
+    </tr>
+}
+
+</table>
