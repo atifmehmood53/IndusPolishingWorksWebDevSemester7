@@ -278,8 +278,6 @@ namespace ProjectWithAuth.Controllers
                         HireDate = model.HireDate,
                         Wage = model.Wage
 
-
-                        //other attributes as well
                         
 
                     };

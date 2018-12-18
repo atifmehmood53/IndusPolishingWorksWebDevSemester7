@@ -117,6 +117,12 @@ namespace ProjectWithAuth.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Customer customer = db.customers.Find(id);
+            while(customer.Orders.Count != 0)
+            {
+                db.orders.Remove(customer.Orders.First());
+            }
+            
+            db.Users.Remove(customer.User);
             db.customers.Remove(customer);
             db.SaveChanges();
             return RedirectToAction("Index");
